@@ -1,0 +1,153 @@
+<!--
+STUDENT FEEDBACK REGISTRATION FORM
+===================================
+DevOps Project - Professional Grade
+
+This HTML document provides the user interface for a student feedback collection system.
+The form includes validation, real-time input sanitization, and comprehensive error handling.
+
+Technology Stack: HTML5, CSS3, JavaScript ES6+, Selenium for automated testing
+Author: DevOps Team
+Last Updated: 2026
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title displayed in browser tab -->
+    <title>Student Feedback Registration Form</title>
+    
+    <!-- External stylesheet for styling and responsive design -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the form -->
+    <div class="container">
+        <!-- Form header -->
+        <h1>Student Feedback Registration Form</h1>
+        
+        <!-- 
+        Main feedback form with the following characteristics:
+        - id="feedbackForm": Unique identifier for JavaScript form selection
+        - novalidate: Disables browser's native validation (we use custom validation)
+        - onsubmit="return validateForm()": Triggers custom validation on form submission
+        -->
+        <form id="feedbackForm" action="#" method="post" novalidate onsubmit="return validateForm()">
+            
+            <!-- Student Name Input Field -->
+            <div class="form-group">
+                <label for="name">Student Name:</label>
+                <!-- 
+                Text input for student name with real-time sanitization:
+                - Numbers are automatically removed via JavaScript
+                - Minimum 2 characters required
+                - Spaces trimmed on blur
+                -->
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            
+            <!-- Email Input Field -->
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <!-- 
+                Email input with automatic formatting:
+                - Converts to lowercase automatically
+                - Validates email format (standard regex pattern)
+                - Case-insensitive validation
+                -->
+                <input type="email" id="email" name="email" required placeholder="example@college.edu">
+            </div>
+            
+            <!-- Mobile Number Input Field -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <!-- 
+                Telephone input field with real-time validation:
+                - Only digits accepted (non-digits removed automatically)
+                - Enforced to exactly 10 digits
+                - Non-alphanumeric characters stripped via JavaScript
+                -->
+                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit mobile number">
+            </div>
+            
+            <!-- Department Selection Dropdown -->
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <!-- 
+                Select dropdown for department choice:
+                - First option is placeholder (empty value)
+                - Required field - at least one option must be selected
+                - Includes Computer Science, IT, Electronics, Mechanical, Civil
+                -->
+                <select id="department" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="information-technology">Information Technology</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mechanical">Mechanical</option>
+                    <option value="civil">Civil</option>
+                </select>
+            </div>
+            
+            <!-- Gender Selection - Radio Buttons -->
+            <div class="form-group">
+                <label>Gender:</label>
+                <!-- 
+                Radio button group for gender selection:
+                - Only one option can be selected at a time
+                - name="gender" groups the radio buttons together
+                - required attribute ensures one option is selected
+                -->
+                <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            
+            <!-- Feedback Comments Textarea -->
+            <div class="form-group">
+                <label for="feedback">Feedback Comments:</label>
+                <!-- 
+                Multi-line text area for detailed feedback:
+                - Minimum 10 words required
+                - Minimum 50 characters required
+                - Validation includes word and character count
+                - Real-time character/word counting displayed in console
+                -->
+                <textarea id="feedback" name="feedback" rows="4" required placeholder="Share your detailed feedback here (minimum 10 words)"></textarea>
+            </div>
+            
+            <!-- Error Message Display Area -->
+            <!-- 
+            Dedicated paragraph for displaying validation errors:
+            - id="error" used by JavaScript to display error messages
+            - Initially hidden (display: none in CSS)
+            - Error messages appear with emoji indicators for clarity
+            -->
+            <p id="error"></p>
+            
+            <!-- Form Control Buttons -->
+            <div class="form-group">
+                <!-- Submit button: triggers form validation and submission -->
+                <button type="submit">Submit</button>
+                
+                <!-- Reset button: clears all form fields to default values -->
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- External JavaScript file for form validation and real-time input sanitization -->
+    <script src="script.js"></script>
+</body>
+</html>

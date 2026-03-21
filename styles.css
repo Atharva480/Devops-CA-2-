@@ -1,0 +1,512 @@
+/**
+ * PROFESSIONAL CSS STYLESHEET
+ * =============================
+ * Student Feedback Registration Form - Modern & Responsive Design
+ * 
+ * Design Philosophy:
+ * - Modern gradient-based UI with professional color scheme
+ * - Responsive design that works on mobile, tablet, and desktop
+ * - Smooth transitions and hover effects for better UX
+ * - Accessibility-focused with proper contrast ratios
+ * - Clean, maintainable code with organized sections
+ * 
+ * Color Scheme:
+ * - Primary Gradient: #667eea (blue) to #764ba2 (purple)
+ * - Text: #2c3e50 (dark blue-gray)
+ * - Accent: #34495e (medium blue-gray)
+ * - Error: #c0392b (deep red)
+ * - Success: #27ae60 (green)
+ * - Background: #ffffff (white), #f8f9fa (light gray)
+ */
+
+/* ============================================================================
+   SECTION 1: GLOBAL STYLES & BODY
+   ============================================================================ */
+
+body {
+    /* Professional font stack with fallbacks */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Attractive gradient background - creates purple-blue color transition */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* Reset default browser margins and padding */
+    margin: 0;
+    padding: 0;
+    
+    /* Flexbox layout: centers content both horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Full viewport height with minimum height to fill screen */
+    min-height: 100vh;
+    
+    /* Primary text color for entire page */
+    color: #333;
+}
+
+/* ============================================================================
+   SECTION 2: CONTAINER & HEADER STYLING
+   ============================================================================ */
+
+.container {
+    /* White background for form visibility against gradient */
+    background-color: #ffffff;
+    
+    /* Internal spacing for content */
+    padding: 40px;
+    
+    /* Rounded corners for modern appearance */
+    border-radius: 15px;
+    
+    /* Professional shadow effect for depth */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    /* Responsive width: full width on mobile, max 550px on desktop */
+    width: 100%;
+    max-width: 550px;
+    
+    /* Position context for pseudo-element */
+    position: relative;
+    
+    /* Hide overflow to maintain border-radius */
+    overflow: hidden;
+}
+
+/* Top accent bar using pseudo-element */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* Main form header */
+h1 {
+    /* Center the heading */
+    text-align: center;
+    
+    /* Dark blue-gray color for contrast */
+    color: #2c3e50;
+    
+    /* Bottom margin for spacing */
+    margin-bottom: 30px;
+    
+    /* Large, prominent font size */
+    font-size: 28px;
+    
+    /* Semi-bold weight for emphasis */
+    font-weight: 600;
+    
+    /* Subtle shadow for depth */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================================
+   SECTION 3: FORM GROUP & LABEL STYLING
+   ============================================================================ */
+
+.form-group {
+    /* Consistent spacing between form groups */
+    margin-bottom: 25px;
+    
+    /* Position context for relative positioning */
+    position: relative;
+}
+
+/* Form labels styling */
+label {
+    /* Block display for full width */
+    display: block;
+    
+    /* Spacing below label text */
+    margin-bottom: 8px;
+    
+    /* Bold font for emphasis */
+    font-weight: 600;
+    
+    /* Medium blue-gray color */
+    color: #34495e;
+    
+    /* Smaller font size than input fields */
+    font-size: 14px;
+    
+    /* Uppercase text for professional appearance */
+    text-transform: uppercase;
+    
+    /* Letter spacing for better readability */
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   SECTION 4: INPUT FIELDS STYLING
+   ============================================================================ */
+
+/* Unified styling for all text-based input fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    /* Full width of parent container */
+    width: 100%;
+    
+    /* Internal padding for better text spacing */
+    padding: 15px 20px;
+    
+    /* Professional border style */
+    border: 2px solid #e1e8ed;
+    
+    /* Smooth rounded corners */
+    border-radius: 8px;
+    
+    /* Include borders in width calculation */
+    box-sizing: border-box;
+    
+    /* Match label font size for consistency */
+    font-size: 16px;
+    
+    /* Smooth transitions for all properties */
+    transition: all 0.3s ease;
+    
+    /* Light gray background for field distinction */
+    background-color: #f8f9fa;
+    
+    /* Text color matching body */
+    color: #2c3e50;
+}
+
+/* Enhanced styling when input fields are focused (clicked/active) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    /* Remove browser default outline */
+    outline: none;
+    
+    /* Change border color to primary gradient color */
+    border-color: #667eea;
+    
+    /* Add subtle blue glow effect */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    
+    /* Change background to white on focus */
+    background-color: #ffffff;
+}
+
+/* Add placeholder styling for better guidance */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* ============================================================================
+   SECTION 5: GENDER RADIO BUTTON STYLING
+   ============================================================================ */
+
+.gender-options {
+    /* Flex layout for horizontal arrangement */
+    display: flex;
+    
+    /* Space between radio button groups */
+    gap: 20px;
+    
+    /* Margin from label above */
+    margin-top: 10px;
+}
+
+/* Gender radio button labels */
+.gender-options label {
+    /* Flex layout to align radio button with text */
+    display: flex;
+    
+    /* Vertically center radio button with text */
+    align-items: center;
+    
+    /* Normal font weight for secondary labels */
+    font-weight: normal;
+    
+    /* Reset uppercase formatting for radio labels */
+    text-transform: none;
+    
+    /* Reset letter spacing */
+    letter-spacing: normal;
+    
+    /* Show cursor is a pointer on hover */
+    cursor: pointer;
+    
+    /* Smooth color transition on hover */
+    transition: color 0.3s ease;
+}
+
+/* Radio button input styling */
+.gender-options input[type="radio"] {
+    /* Space between radio button and label text */
+    margin-right: 8px;
+    
+    /* Slightly larger radio buttons for better visibility */
+    transform: scale(1.2);
+    
+    /* Show cursor is a pointer */
+    cursor: pointer;
+}
+
+/* Hover effect for radio button labels */
+.gender-options label:hover {
+    /* Change text color to primary gradient color */
+    color: #667eea;
+}
+
+/* ============================================================================
+   SECTION 6: TEXTAREA & FEEDBACK STYLING
+   ============================================================================ */
+
+textarea {
+    /* Allow only vertical resizing */
+    resize: vertical;
+    
+    /* Minimum height for adequate feedback space */
+    min-height: 100px;
+    
+    /* Match form font family */
+    font-family: inherit;
+}
+
+/* ============================================================================
+   SECTION 7: ERROR MESSAGE STYLING
+   ============================================================================ */
+
+#error {
+    /* Light red background for error visibility */
+    background-color: #fee;
+    
+    /* Deep red text for error emphasis */
+    color: #c0392b;
+    
+    /* Internal padding for text spacing */
+    padding: 15px;
+    
+    /* Rounded corners matching other elements */
+    border-radius: 8px;
+    
+    /* Thick left border to emphasize error */
+    border-left: 4px solid #e74c3c;
+    
+    /* Bottom margin for separation from next element */
+    margin-bottom: 20px;
+    
+    /* Smaller font for error messages */
+    font-size: 14px;
+    
+    /* Initially hidden, shown by JavaScript on validation error */
+    display: none;
+    
+    /* Better line height for readability of multiple error messages */
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   SECTION 8: BUTTON STYLING
+   ============================================================================ */
+
+/* Container for form buttons */
+.form-group:last-of-type {
+    /* Remove bottom margin for last element */
+    margin-bottom: 0;
+    
+    /* Flex layout for button arrangement */
+    display: flex;
+    
+    /* Space between buttons */
+    gap: 15px;
+    
+    /* Center buttons horizontally */
+    justify-content: center;
+}
+
+/* Primary and secondary buttons */
+button {
+    /* Gradient background matching form header */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* White text for contrast */
+    color: white;
+    
+    /* Padding for button size */
+    padding: 15px 30px;
+    
+    /* Remove browser default border */
+    border: none;
+    
+    /* Rounded corners for modern look */
+    border-radius: 8px;
+    
+    /* Show cursor is clickable */
+    cursor: pointer;
+    
+    /* Font size matches form text */
+    font-size: 16px;
+    
+    /* Bold font for emphasis */
+    font-weight: 600;
+    
+    /* Uppercase text for prominence */
+    text-transform: uppercase;
+    
+    /* Letter spacing for readability */
+    letter-spacing: 0.5px;
+    
+    /* Smooth transitions for hover effects */
+    transition: all 0.3s ease;
+    
+    /* Shadow for button depth */
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    
+    /* Minimum button width for consistency */
+    min-width: 120px;
+}
+
+/* Button hover state - raised effect */
+button:hover {
+    /* Slight upward movement */
+    transform: translateY(-2px);
+    
+    /* Stronger shadow on hover */
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Button active state - pressed effect */
+button:active {
+    /* Return to normal position when clicked */
+    transform: translateY(0);
+}
+
+/* Reset button - different gradient (gray instead of purple-blue) */
+button[type="reset"] {
+    /* Gray gradient for secondary action button */
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    
+    /* Gray shadow for consistency */
+    box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+}
+
+/* Reset button hover state */
+button[type="reset"]:hover {
+    /* Gray shadow on hover */
+    box-shadow: 0 6px 20px rgba(149, 165, 166, 0.4);
+}
+
+/* ============================================================================
+   SECTION 8.5: CSS ANIMATIONS & KEYFRAMES
+   ============================================================================ */
+
+/**
+ * fade-in-down Animation
+ * Purpose: Smooth entrance animation when form loads
+ */
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/**
+ * shake Animation
+ * Purpose: Gentle shake effect on error display for user attention
+ */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/**
+ * pulse Animation
+ * Purpose: Pulsing effect on focus for better visibility
+ */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+/* Apply fade-in animation to form container for smooth load */
+.container {
+    animation: fade-in-down 0.6s ease-out;
+}
+
+/* Apply shake animation to error messages for attention */
+#error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Apply focus animation to input fields when focused */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    animation: pulse 1.5s ease-out;
+}
+
+/* ============================================================================
+   SECTION 9: RESPONSIVE DESIGN - MOBILE & TABLET
+   ============================================================================ */
+
+/* Mobile devices: screens 600px and smaller */
+@media (max-width: 600px) {
+    /* Reduce padding on small screens */
+    .container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    /* Smaller heading on mobile */
+    h1 {
+        font-size: 24px;
+    }
+    
+    /* Stack buttons vertically on mobile */
+    .form-group:last-of-type {
+        flex-direction: column;
+    }
+    
+    /* Full width buttons on mobile */
+    button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .form-group:last-of-type {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
