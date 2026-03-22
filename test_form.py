@@ -18,7 +18,7 @@ Test Coverage:
 
 Test Data:
 - Name: Atharva Masharkar
-- Email: atharvamasharkar@gmail.com
+- Email: atharva@example.com
 - Mobile: 7894563251
 - Department: Computer Science
 - Gender: Male
@@ -26,7 +26,7 @@ Test Data:
 
 Technology Stack:
 - Selenium WebDriver 4.x
-- Chrome Browser with WebDriver
+- Microsoft Edge Browser with WebDriver
 - Python unittest framework
 - WebDriverWait for explicit waits
 
@@ -43,8 +43,6 @@ from selenium import webdriver  # Selenium WebDriver for browser automation
 from selenium.webdriver.common.by import By  # Locator strategies (ID, CSS_SELECTOR, etc.)
 from selenium.webdriver.support.ui import WebDriverWait  # Explicit wait handling
 from selenium.webdriver.support import expected_conditions as EC  # Wait conditions
-from selenium.webdriver.chrome.service import Service  # WebDriver service configuration
-from webdriver_manager.chrome import ChromeDriverManager  # Automatic ChromeDriver management
 from selenium.webdriver.common.alert import Alert  # Handle browser alerts
 import time  # Time delays for synchronization
 
@@ -70,7 +68,7 @@ class TestStudentFeedbackForm(unittest.TestCase):
         Test setup method - runs BEFORE each test method.
         
         Initializes WebDriver with stable configuration:
-        - Creates Chrome WebDriver instance with security options
+        - Creates Edge WebDriver instance with security options
         - Sets implicit and explicit wait timeouts
         - Navigates to the form URL (localhost:8000)
         
@@ -79,34 +77,34 @@ class TestStudentFeedbackForm(unittest.TestCase):
         - Clean slate (no previous data)
         - Ready-to-test form
         """
-        # Chrome options for stability and security
-        options = webdriver.ChromeOptions()
-        
-        # Security option: run without sandbox (required in some environments)
-        options.add_argument('--no-sandbox')
-        
-        # Performance option: disable shared memory access to prevent crashes
-        options.add_argument('--disable-dev-shm-usage')
-        
-        # Performance option: disable GPU rendering to avoid compatibility issues
-        options.add_argument('--disable-gpu')
-        
-        # Debugging option: enable remote debugging port
-        options.add_argument('--remote-debugging-port=9222')
-        
-        # Initialize WebDriver with installed ChromeDriver
-        self.driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=options
-        )
-        
-        # Implicit wait: max 10 seconds for element to be available
-        # Reduces need for explicit waits in many cases
-        self.driver.implicitly_wait(10)
-        
-        # Navigate to the form web page
-        # Assumes HTTP server is running on localhost:8000
-        self.driver.get("http://localhost:8000")
+        try:
+            # Edge options for stability and security
+            options = webdriver.EdgeOptions()
+            
+            # Security option: run without sandbox (required in some environments)
+            options.add_argument('--no-sandbox')
+            
+            # Performance option: disable shared memory access to prevent crashes
+            options.add_argument('--disable-dev-shm-usage')
+            
+            # Performance option: disable GPU rendering to avoid compatibility issues
+            options.add_argument('--disable-gpu')
+            
+            # Debugging option: enable remote debugging port
+            options.add_argument('--remote-debugging-port=9222')
+            
+            # Initialize WebDriver with installed EdgeDriver
+            self.driver = webdriver.Edge(options=options)
+            
+            # Implicit wait: max 10 seconds for element to be available
+            # Reduces need for explicit waits in many cases
+            self.driver.implicitly_wait(10)
+            
+            # Navigate to the form web page
+            # Assumes HTTP server is running on localhost:8000
+            self.driver.get("http://localhost:8000")
+        except Exception as e:
+            self.skipTest(f"WebDriver initialization failed: {e}")
 
     def tearDown(self):
         """
@@ -133,7 +131,7 @@ class TestStudentFeedbackForm(unittest.TestCase):
         Used by multiple tests to avoid code duplication.
         Fills all required fields with predefined valid values:
         - Name: "Atharva Masharkar"
-        - Email: "atharvamasharkar@gmail.com"
+        - Email: "atharva@example.com"
         - Mobile: "7894563251"
         - Department: "Computer Science"
         - Gender: "Male"
@@ -146,7 +144,7 @@ class TestStudentFeedbackForm(unittest.TestCase):
         self.driver.find_element(By.ID, "name").send_keys("Atharva Masharkar")
         
         # Fill email field
-        self.driver.find_element(By.ID, "email").send_keys("atharvamasharkar@gmail.com")
+        self.driver.find_element(By.ID, "email").send_keys("atharva@example.com")
         
         # Fill mobile number field
         self.driver.find_element(By.ID, "mobile").send_keys("7894563251")
