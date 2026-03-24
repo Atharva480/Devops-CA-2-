@@ -1,6 +1,7 @@
 # Student Feedback Registration Form - DevOps Project
 
-**Professional-Grade Full-Stack Web Application with CI/CD Integration**
+**Professional-Grade Full-Stack Web Application with CI/CD Integration**<img width="2261" height="861" alt="Screenshot 2026-03-24 152902" src="https://github.com/user-attachments/assets/2fc31131-2583-41bf-804b-0ace6aba9624" />
+
 
 ---
 
@@ -543,7 +544,8 @@ This project is created for educational purposes as part of a DevOps course assi
 - **Jenkins build fails:** Check that Python and pip are in PATH, and all dependencies are installed
 - **WebDriver issues:** webdriver-manager should handle ChromeDriver automatically
 
-## Notes
+## Notes<img width="2064" height="1132" alt="Screenshot 2026-03-24 151516" src="https://github.com/user-attachments/assets/4b9b2962-a2df-4b3b-8b02-08e77b0bb5b0" />
+
 
 - The form uses client-side validation; in a real application, server-side validation would also be needed
 - Selenium tests assume the form is served on localhost:8000
