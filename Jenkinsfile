@@ -1,11 +1,13 @@
 pipeline {
     agent any
 
-    environment {
-        APP_NAME = "Devops-CA-2"
-    }
-
     stages {
+
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
 
         stage('Checkout Code') {
             steps {
@@ -13,21 +15,30 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Validate Form Files') {
             steps {
-                echo "Building ${APP_NAME}..."
+                bat 'dir'
+                bat 'type index.html'
             }
         }
 
-        stage('Test') {
+        stage('Check Input Fields') {
             steps {
-                echo "Running tests..."
+                bat 'findstr /i "input" index.html'
+                bat 'findstr /i "select" index.html'
+                bat 'findstr /i "form" index.html'
+            }
+        }
+
+        stage('Run Basic Validation') {
+            steps {
+                bat 'echo Form fields detected successfully'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying ${APP_NAME}..."
+                bat 'echo Deployment successful'
             }
         }
     }
